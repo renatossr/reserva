@@ -1,0 +1,14 @@
+<h2>Establishment List</h2>
+
+
+<form>
+  <input type="text" ng-model="searchString" ng-change="search()" placeholder="Enter your search terms" />
+</form>
+
+<ul>
+  <li ng-repeat="establishment in establishments">
+    <a ui-sref="establishments.detail({establishmentId: establishment.id})">{{establishment.name}}</a>
+  </li>
+</ul>
+
+<p>{{searchString}}</p>
