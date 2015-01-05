@@ -2,6 +2,8 @@ module Api
   module V1
     class EstablishmentsController < ApplicationController
       
+      before_action :find_establishment, only: [:show, :destroy]
+      
       def index
         @establishments = Establishment.all
         if params[:search]
@@ -10,7 +12,7 @@ module Api
       end
 
       def show
-        @establishment = Establishment.find(params[:id])
+
       end
 
       def create
@@ -24,17 +26,20 @@ module Api
       end
 
       def destroy
-        @establishment = Establishment.find(params[:id])
         @establishment.destroy
         render nothing: true, status: 204
       end
 
+      # ---------------------------- Private ---------------------------------
       private
 
       def establishment_params
         params.require(:establishment).permit(:name)
       end
 
+      def find_establishment
+        @establishment = Establishment.find(params[:id])
+      end
     end
   end
 end

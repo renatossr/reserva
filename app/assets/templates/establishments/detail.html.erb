@@ -1,5 +1,13 @@
 <h2>{{establishment.name}}</h2>
 
+<form class="form-inline" method="post">
+  <div class="form-group">
+    <label class="sr-only" for="positionName">Name</label>
+    <input class="form-control" type="text" id="positionName" placeholder="Enter Name" ng-model="position.name"/>
+  </div>
+  <input class="btn btn-primary" type="submit" value="Add Position" />
+</form>
+
 <table class="table">
   <thead>
     <tr>

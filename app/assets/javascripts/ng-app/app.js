@@ -37,15 +37,6 @@ angular.module('Reserva', [
             url: '/{establishmentId:[0-9]{1,32}}',
             templateUrl: 'establishments/detail.html',
             controller: 'EstablishmentDetailCtrl'
-          })
-          .state('establishments.two', {
-            url: '/two',
-            templateUrl: 'establishments/two.html',
-            controller: 'EstablishmentCtrl'
-          })
-          .state('establishments.three', {
-            url: '/three',
-            templateUrl: 'establishments/three.html'
           });
 
       $urlRouterProvider.otherwise('/');

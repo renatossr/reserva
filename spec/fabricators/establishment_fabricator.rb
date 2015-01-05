@@ -1,3 +1,3 @@
 Fabricator(:establishment) do
-  name { Faker::Name.name }
+  name { Faker::Company.bs.titleize }
 end
