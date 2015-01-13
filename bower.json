@@ -15,7 +15,10 @@
       "angular-data": "latest",
       "restangular": "latest",
       "ngActiveResource": "latest",
-      "bootstrap-sass-official": "https://github.com/twbs/bootstrap-sass.git#master"
+      "string.js": "latest",
+      "bootstrap-sass-official": "https://github.com/twbs/bootstrap-sass.git#master",
+      "fontawesome": "latest",
+      "normalize.css": "latest"
     }
   }
 }

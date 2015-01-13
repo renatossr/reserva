@@ -14,8 +14,8 @@ describe 'Establishment Creation' do
     expect(response.content_type).to eq(Mime::JSON)
     
     establishment = json(response.body)
-    expect(api_v1_establishment_url(establishment.id)).to eq(response.location)
-    expect(establishment.name).to eq(e[:establishment][:name])
+    expect(api_v1_establishment_url(establishment[:id])).to eq(response.location)
+    expect(establishment[:name]).to eq(e[:establishment][:name])
   
   end
 
@@ -31,7 +31,7 @@ describe 'Establishment Creation' do
     expect(response.content_type).to eq(Mime::JSON)
     
     establishment = json(response.body)
-    expect(establishment.errors.length).to be > 0
+    expect(establishment[:errors].length).to be > 0
 
   end
 end

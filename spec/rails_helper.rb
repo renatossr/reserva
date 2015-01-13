@@ -64,5 +64,5 @@ RSpec.configure do |config|
 end
 
 def json(body)
-  JSON.parse(body, {symbolize_names: true, object_class: OpenStruct})
+  JSON.parse(body, {symbolize_names: true})
 end

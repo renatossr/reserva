@@ -1,1 +1,1 @@
-node (:errors) { @errors }
+node (:errors) { @errors.to_json }

@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-sm-12">
+    <h2>Establishment List</h2>
+    <div class="search-box">
+      <form>
+        <div class="form-group">
+          <input class="form-control" name="establishmentList.searchString" type="search" ng-model="establishmentList.searchString" ng-change="establishmentList.search()" placeholder="Search...">
+        </div>
+      </form>  
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <ul class="list-unstyled">
+      <li ng-repeat="establishment in establishmentList.establishments" ng-click="establishmentList.selectEstablishment(establishment.id)">
+        <div class="panel panel-default establishment-list-item">
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-sm-4">
+                <h4>{{establishment.name}}</h4>
+                <div class="rating">
+                  Rating: 4.9
+                </div>
+              </div>
+              <div class="col-sm-8">
+                <address>
+                  <span ng-if="establishment.formattedAddress">{{establishment.formattedAddress}}<br></span>
+                  <span ng-if="establishment.formattedCityStateZip">{{establishment.formattedCityStateZip}}<br></span>
+                  <abbr title="Phone">T:</abbr> (123) 456-7890
+                </address>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul> 
+  </div>
+</div>
+
+
+

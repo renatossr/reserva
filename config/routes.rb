@@ -4,9 +4,14 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
       resources :establishments do
-        resources :positions
+        resources :positions do
+          resources :appointments
+        end
       end
-      resources :positions
+      resources :positions do
+        resources :appointments
+      end
+      resources :appointments
     end
   end
 

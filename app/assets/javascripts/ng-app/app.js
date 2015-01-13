@@ -1,9 +1,11 @@
 angular.module('Reserva', [
+      'establishments',
       'ngAnimate',
       'ui.router',
       'restangular',
       'ActiveResource',
-      'templates'
+      'templates',
+      'ux.calendar'
       ]
 )
 .run(
@@ -17,30 +19,15 @@ angular.module('Reserva', [
 .config(
   [          '$stateProvider', '$urlRouterProvider', '$locationProvider', 
     function ($stateProvider,   $urlRouterProvider,   $locationProvider) {
+      
+      $urlRouterProvider.otherwise('/');
+      
       $stateProvider
         .state('home', {
           url: '/',
-          templateUrl: 'home.html',
-          controller: 'HomeCtrl'
-        })
-        .state('establishments', {
-          abstract: true,
-          url: '/establishments',
-          templateUrl: 'establishments/establishments.html',
-        })
-          .state('establishments.list', {
-            url: '',
-            templateUrl: 'establishments/list.html',
-            controller: 'EstablishmentCtrl'
-          })
-          .state('establishments.detail', {
-            url: '/{establishmentId:[0-9]{1,32}}',
-            templateUrl: 'establishments/detail.html',
-            controller: 'EstablishmentDetailCtrl'
-          });
-
-      $urlRouterProvider.otherwise('/');
-
+          templateUrl: 'home/home.html'
+        });
+      
       $locationProvider.html5Mode(true);
-
-  }]);
+      
+}]);

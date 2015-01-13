@@ -11,13 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150104011222) do
+ActiveRecord::Schema.define(version: 20150110174752) do
+
+  create_table "appointments", force: true do |t|
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string   "kind"
+    t.string   "description"
+    t.integer  "position_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "deleted_at"
+  end
 
   create_table "establishments", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "deleted_at"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.string   "zip"
+    t.float    "lat"
+    t.float    "long"
+    t.integer  "review"
   end
 
   add_index "establishments", ["deleted_at"], name: "index_establishments_on_deleted_at"

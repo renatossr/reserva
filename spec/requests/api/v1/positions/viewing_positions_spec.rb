@@ -38,8 +38,8 @@ describe 'Position viewing' do
 
     expect(response.status).to eq(200)
     positionResponse = json(response.body)
-    expect(positionResponse.id).to eq(position.id)
-    expect(positionResponse.name).to eq(position.name)
+    expect(positionResponse[:id]).to eq(position.id)
+    expect(positionResponse[:name]).to eq(position.name)
 
   end
 end

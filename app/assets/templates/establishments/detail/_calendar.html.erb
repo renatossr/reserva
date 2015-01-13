@@ -1,0 +1,100 @@
+<table>
+  <thead>
+    <tr class="header">
+      <th></th>
+      <th>7h</th>
+      <th></th>
+      <th>8h</th>
+      <th></th>
+      <th>9h</th>
+      <th></th>
+      <th>10h</th>
+      <th></th>
+      <th>11h</th>
+      <th></th>
+      <th>12h</th>
+      <th></th>
+      <th>13h</th>
+      <th></th>
+      <th>14h</th>
+      <th></th>
+      <th>15h</th>
+      <th></th>
+      <th>16h</th>
+      <th></th>
+      <th>17h</th>
+      <th></th>
+      <th>18h</th>
+      <th></th>
+      <th>19h</th>
+      <th></th>
+      <th>20h</th>
+      <th></th>
+    </tr>
+    <tr class="spacer">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="time">
+      <td class="row-header"><span ng-no-bindable>{{day | date:"EEE" | filter:formatWeekday}}</span></br><span ng-no-bindable>{{day | date:"d/MM"}}</span></td>
+      <td ng-click="establishmentDetail.addAppointmentByClick(day, '07', '00')"></td>
+      <td ng-click="establishmentDetail.addAppointmentByClick(day, '07', '30')"></td>
+      <td ng-click="establishmentDetail.addAppointmentByClick(day, '08', '00')"></td>
+      <td ng-click="establishmentDetail.addAppointmentByClick(day, '08', '30')"></td>
+      <td ng-click="establishmentDetail.addAppointmentByClick(day, '09', '00')"></td>
+      <td ng-click="establishmentDetail.addAppointmentByClick(day, '09', '30')"></td>
+      <td ng-click="establishmentDetail.addAppointmentByClick(day, '10', '00')"></td>
+      <td ng-click="establishmentDetail.addAppointmentByClick(day, '10', '30')"></td>
+      <td ng-click="establishmentDetail.addAppointmentByClick(day, '11', '00')"></td>
+      <td ng-click="establishmentDetail.addAppointmentByClick(day, '11', '30')"></td>
+      <td ng-click="establishmentDetail.addAppointmentByClick(day, '12', '00')"></td>
+      <td ng-click="establishmentDetail.addAppointmentByClick(day, '12', '30')"></td>
+      <td ng-click="establishmentDetail.addAppointmentByClick(day, '13', '00')"></td>
+      <td ng-click="establishmentDetail.addAppointmentByClick(day, '13', '30')"></td>
+      <td ng-click="establishmentDetail.addAppointmentByClick(day, '14', '00')"></td>
+      <td ng-click="establishmentDetail.addAppointmentByClick(day, '14', '30')"></td>
+      <td ng-click="establishmentDetail.addAppointmentByClick(day, '15', '00')"></td>
+      <td ng-click="establishmentDetail.addAppointmentByClick(day, '15', '30')"></td>
+      <td ng-click="establishmentDetail.addAppointmentByClick(day, '16', '00')"></td>
+      <td ng-click="establishmentDetail.addAppointmentByClick(day, '16', '30')"></td>
+      <td ng-click="establishmentDetail.addAppointmentByClick(day, '17', '00')"></td>
+      <td ng-click="establishmentDetail.addAppointmentByClick(day, '17', '30')"></td>
+      <td ng-click="establishmentDetail.addAppointmentByClick(day, '18', '00')"></td>
+      <td ng-click="establishmentDetail.addAppointmentByClick(day, '18', '30')"></td>
+      <td ng-click="establishmentDetail.addAppointmentByClick(day, '19', '00')"></td>
+      <td ng-click="establishmentDetail.addAppointmentByClick(day, '19', '30')"></td>
+      <td ng-click="establishmentDetail.addAppointmentByClick(day, '20', '00')"></td>
+      <td ng-click="establishmentDetail.addAppointmentByClick(day, '20', '30')"></td>
+    </tr>
+  </tbody>
+</table>
+<div ng-repeat="appointment in establishmentDetail.appointments[day]" ng-class="appointment.class" class="event" ng-style="{'left': appointment.left_position + 'px', 'width': appointment.duration + 'px'}">{{appointment.id}}</div>

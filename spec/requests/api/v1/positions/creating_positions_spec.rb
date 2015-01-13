@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'Position Creation' do
-  before(:all) do
+  before(:each) do
     @establishment = Fabricate(:establishment)
   end
 
@@ -18,8 +18,8 @@ describe 'Position Creation' do
     expect(response.content_type).to eq(Mime::JSON)
     
     position = json(response.body)
-    expect(api_v1_position_url(position.id)).to eq(response.location)
-    expect(position.name).to eq(p[:position][:name])
+    expect(api_v1_position_url(position[:id])).to eq(response.location)
+    expect(position[:name]).to eq(p[:position][:name])
   
   end
 
@@ -36,7 +36,7 @@ describe 'Position Creation' do
     expect(response.content_type).to eq(Mime::JSON)
     
     position = json(response.body)
-    expect(position.errors.length).to be > 0
+    expect(position[:errors].length).to be > 0
 
   end
 end

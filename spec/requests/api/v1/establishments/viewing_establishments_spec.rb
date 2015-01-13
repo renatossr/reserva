@@ -20,8 +20,8 @@ describe "Establishment Viewing" do
 
     expect(response).to be_success
     json = json(response.body)
-    expect(json.id).to eq(@establishment.id)
-    expect(json.name).to eq(@establishment.name)
+    expect(json[:id]).to eq(@establishment.id)
+    expect(json[:name]).to eq(@establishment.name)
 
   end
 end

@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-sm-4">  
+    <div class="row overview">
+      <div class="col-sm-3 logo">
+        <img ng-src="http://placehold.it/80&text=Logo" alt="Logo" />
+      </div>
+      <div class="col-sm-9">
+        <h4>{{establishmentDetail.establishment.name}}</h4>
+        <address>
+          <span ng-if="establishmentDetail.establishment.formattedAddress">{{establishmentDetail.establishment.formattedAddress}}<br></span>
+          <span ng-if="establishmentDetail.establishment.formattedCityStateZip">{{establishmentDetail.establishment.formattedCityStateZip}}<br></span>
+          <abbr title="Phone">T:</abbr> (123) 456-7890
+        </address>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12"> 
+        <h4>Positions</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 establishment-detail-positions">
+        <table class="table">
+          <tbody>
+            <tr ng-repeat="position in establishmentDetail.establishment.positions">
+              <td>{{position.name}}</td>
+            </tr>
+          </tbody>
+        </table> 
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-8">
+    <div class="row">
+      <div class="col-sm-12">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <section id="calendar">
+          <div ng-repeat="day in establishmentDetail.days" class="day">
+            <ng-include src="'establishments/detail/_calendar.html'"></ng-include>
+          </div>
+        </section>
+      </div>
+  </div>
+</div>
+
