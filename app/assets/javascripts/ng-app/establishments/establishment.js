@@ -26,8 +26,8 @@ angular.module('establishments', [
         templateUrl: 'establishments/detail/detail.html',
         controller: 'EstablishmentDetailCtrl as establishmentDetail',
         resolve: {
-          initialData: ['EstablishmentDetailCtrlInitialData', function(EstablishmentDetailCtrlInitialData){
-            return EstablishmentDetailCtrlInitialData();
+          initialData: ['EstablishmentDetailCtrlInitialData', '$stateParams', function(EstablishmentDetailCtrlInitialData, $stateParams){
+            return EstablishmentDetailCtrlInitialData.init($stateParams.establishmentId);
           }]
         } 
       });

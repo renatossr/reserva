@@ -22,6 +22,5 @@
 //= require active-support
 //= require ngActiveResource
 //= require angular-rails-templates
-//= require string
 //= require_tree .
 //= require_tree ../templates

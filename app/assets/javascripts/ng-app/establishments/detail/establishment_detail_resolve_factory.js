@@ -2,9 +2,9 @@ angular.module('establishment.detail.initialData', [])
 .factory("EstablishmentDetailCtrlInitialData", 
   [       'Establishment', '$stateParams', '$q', 
   function(Establishment,   $stateParams,   $q) {
-  
-    return function() {
-      var establishment = Establishment.find({id: $stateParams.establishmentId});
+    var initialData = {}; 
+    initialData.init = function(establishmentId) {
+      var establishment = Establishment.find({id: establishmentId});
 
       return $q.all([establishment]).then(function(results){
         return {
@@ -12,4 +12,5 @@ angular.module('establishment.detail.initialData', [])
         };
       });
     }
+    return initialData;
 }]);

@@ -33,7 +33,7 @@ class Appointment < ActiveRecord::Base
   scope :only_of_period,          ->(start_day, end_day) { where('start_time BETWEEN ? AND ?', start_day.beginning_of_day, end_day.end_of_day) }
   scope :of_positions,            ->(positions) { where('position_id IN (?)', positions) }
   scope :only_of_kind,            ->(kind) { where('kind = ?', kind) }
-  scope :conflicts_with,          ->(appointment) { Appointment.where('(start_time > ? AND start_time < ?) OR (end_time > ? AND end_time < ?)', appointment.start_time, appointment.end_time, appointment.start_time, appointment.end_time) }
+  scope :conflicts_with,          ->(appointment) { Appointment.where('(start_time >= ? AND start_time < ?) OR (end_time > ? AND end_time <= ?)', appointment.start_time, appointment.end_time, appointment.start_time, appointment.end_time) }
 
   # Methods -------------------------------------
   # Validation method for conflicts
