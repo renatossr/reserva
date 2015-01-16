@@ -24,6 +24,7 @@
           <tbody>
             <tr ng-repeat="position in establishmentDetail.establishment.positions">
               <td>{{position.name}}</td>
+              <td><input type="checkbox" checklist-model="establishmentDetail.selectedPositions.ids" checklist-value="position.id" ng-click="establishmentDetail.refreshAppointments()"></td>
             </tr>
           </tbody>
         </table> 

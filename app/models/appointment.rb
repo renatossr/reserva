@@ -29,6 +29,7 @@ class Appointment < ActiveRecord::Base
   before_save :cancel_appointment_in_my_range, :if => :is_unavailable_and_has_conflicts?
 
   # Scopes --------------------------------------
+  default_scope                   { order('start_time ASC') }
   scope :only_of_day,             ->(day) { where('start_time BETWEEN ? AND ?', day.beginning_of_day, day.end_of_day) }
   scope :only_of_period,          ->(start_day, end_day) { where('start_time BETWEEN ? AND ?', start_day.beginning_of_day, end_day.end_of_day) }
   scope :of_positions,            ->(positions) { where('position_id IN (?)', positions) }

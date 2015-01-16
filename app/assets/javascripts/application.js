@@ -21,6 +21,7 @@
 //= require async
 //= require active-support
 //= require ngActiveResource
+//= require checklist-model
 //= require angular-rails-templates
 //= require_tree .
 //= require_tree ../templates

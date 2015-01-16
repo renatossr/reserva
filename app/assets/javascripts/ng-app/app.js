@@ -5,7 +5,7 @@ angular.module('Reserva', [
       'restangular',
       'ActiveResource',
       'templates',
-      'ux.calendar'
+      'checklist-model'
       ]
 )
 .run(

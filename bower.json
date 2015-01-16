@@ -15,7 +15,7 @@
       "angular-data": "latest",
       "restangular": "latest",
       "ngActiveResource": "latest",
-      "string.js": "latest",
+      "checklist-model": "latest",
       "bootstrap-sass-official": "https://github.com/twbs/bootstrap-sass.git#master",
       "fontawesome": "latest",
       "normalize.css": "latest"

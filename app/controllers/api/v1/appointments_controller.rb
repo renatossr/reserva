@@ -15,14 +15,13 @@ module Api
       # end
 
       def index
-        if params[:position_id] && params[:day]
-          if params[:day]
-            @appointments = Appointment.of_positions(params[:position_id]).only_of_day(DateTime.parse(params[:day]))
-          else
-            @appointments = Appointment.of_positions(params[:position_id])
-          end
+        if !params[:position_id]
+          render nothing: true, status: 204
         else
-          @appointments = Appointment.all
+          @appointments = Appointment.of_positions(params[:position_id].split(',').map(&:to_i))
+          if params[:day]
+            @appointments = @appointments.only_of_day(DateTime.parse(params[:day]))
+          end
         end
       end
 

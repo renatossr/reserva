@@ -8,9 +8,11 @@ angular.module('establishment.detail', ['establishment.detail.initialData'])
     RESERVATION_PIXEL_SIZE = 22;
     ONE_HOUR = 60*60*1000; //in miliseconds
         
+    var treatedAppointments = [];
+
     establishmentDetail = this;
     establishmentDetail.establishment = initialData.establishment;
-    establishmentDetail.selectedPositions = [1]; //Initialize to null when position selection method is implemented
+    establishmentDetail.selectedPositions = {ids: []}; //Initialize to null when position selection method is implemented
     establishmentDetail.position = establishmentDetail.establishment.positions.new();
     establishmentDetail.days = [];
     establishmentDetail.appointments = [];
@@ -30,20 +32,40 @@ angular.module('establishment.detail', ['establishment.detail.initialData'])
       }
     }
 
-    //updateDays
+    // updateDays(day) -------------------
+    // day = Day to be updated
+    // Includes the day into the array of days in the scope and updates the appointements for that day
     updateDays = function(day){
       establishmentDetail.days.push(day);
-      updateAppointments(day);
+      if (establishmentDetail.selectedPositions.ids.length > 0){
+        updateAppointments(day);
+      }
+      render();
     }
 
-    // updateAppointments(day)
+    // establishmentDetail.refreshAppointments()
+    establishmentDetail.refreshAppointments = function(){
+      console.log(establishmentDetail.selectedPositions.ids);
+      treatedAppointments = [];
+      for (i=0; i<establishmentDetail.days.length; i++){
+        day = establishmentDetail.days[i];
+        updateAppointments(day);
+      };
+      render();
+    }
+
+    // updateAppointments(day) -----------
+    // day = Day to have appointments populated
+    // Fetches the appointments of the day and includes the treated appointment into the appointments hash
     updateAppointments = function(day){
-      Appointment.where({position_id: establishmentDetail.selectedPositions, day: day}).then(function(response){
-        establishmentDetail.appointments[day] = treatAppointments(response);  
+      Appointment.where({position_id: establishmentDetail.selectedPositions.ids.toString(), day: day}).then(function(response){
+        treatedAppointments[day] = treatAppointments(response);  
       });
     }
 
-    // treatAppointments
+    // treatAppointments(arr) ------------
+    // arr = Array of appointments to be treated
+    // Groups appointments and prepares them for rendering
     treatAppointments = function(arr){
       var appointmentArray = [];
       appointmentArray = groupAppointments(arr);
@@ -133,7 +155,7 @@ angular.module('establishment.detail', ['establishment.detail.initialData'])
       appointment.start_time = appointmentInfo.start_time;
       appointment.end_time = appointmentInfo.end_time;
       appointment.kind = appointmentInfo.kind;
-      appointment.position_id = 1; // CHANGE LATER TO INCORPORATE SAVING THE APPOINTMENT TO MULTIPLE POSITIONS
+      appointment.position_id = establishmentDetail.selectedPositions.ids.toString(); 
       appointment.$save().then(function(response){
         arr[0] = response;
         arr = renderPrepare(arr);
@@ -149,6 +171,10 @@ angular.module('establishment.detail', ['establishment.detail.initialData'])
         arr[i].duration = appointmentWidth(arr[i]);
       };
       return arr;
+    }
+
+    render = function(){
+      establishmentDetail.appointments = treatedAppointments;
     }
 
     // Calculate the left position of the event
