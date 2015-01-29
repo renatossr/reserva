@@ -16,6 +16,7 @@
 #  lat        :float
 #  long       :float
 #  review     :integer
+#  profile_id :integer
 #
 # Indexes
 #

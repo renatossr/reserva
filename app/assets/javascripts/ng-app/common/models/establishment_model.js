@@ -28,6 +28,7 @@ angular.module('Reserva.models.establishment', [])
             return formattedCityStateZip;
           }, ['city', 'state', 'zip']);
 
+          this.belongsTo('profile');
           this.hasMany('positions');
         };
 

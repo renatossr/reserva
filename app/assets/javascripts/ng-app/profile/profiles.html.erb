@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-sm-4 max-height">
+    <ul class="nav nav-sidebar">
+      <li>
+        <a ng-href="/profile/{{profile.profile.id}}">Profile Details<i class="fa fa-male"></i></a>
+      </li>
+      <li>
+        <a ng-href="/profile/{{profile.profile.id}}/establishments">Profile Establishments</a>
+      </li>
+    </ul>
+  </div>
+  <div class="col-sm-7 max-height" ui-view="content"></div>
+</div>

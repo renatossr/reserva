@@ -1,4 +1,4 @@
-angular.module('Reserva.models.postion', [])
+angular.module('Reserva.models.position', [])
   .factory('Position', 
       [         'ActiveResource',
       function ( ActiveResource){

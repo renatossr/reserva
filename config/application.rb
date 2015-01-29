@@ -22,6 +22,7 @@ module Reserva
     
     config.assets.paths << Rails.root.join("lib","assets","bower_components","bootstrap-sass-official")
     config.assets.paths << Rails.root.join("lib","assets","bower_components","bootstrap-sass-official", "assets","fonts")
-
+    config.assets.paths << Rails.root.join("lib","assets","bower_components","fontawesome", "fonts")
+    config.assets.precompile += %w(.svg .eot .woff .ttf)
   end
 end

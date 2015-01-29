@@ -12,9 +12,7 @@ describe "Appointment Viewing" do
 
     get '/api/v1/appointments'
 
-    expect(response).to be_success
-    json = json(response.body)
-    expect(json.length).to eq(2)
+    expect(response.status).to eq(204)
 
   end
 

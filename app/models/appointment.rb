@@ -69,7 +69,7 @@ class Appointment < ActiveRecord::Base
 
   # Retrieve conflicting appointments
   def conflicts
-    Appointment.conflicts_with(self).only_of_kind('Appointment')
+    Appointment.conflicts_with(self).only_of_kind('Appointment').of_positions(self.position_id)
   end
 
   # Cycle through appointmetns with conflict and cancels them

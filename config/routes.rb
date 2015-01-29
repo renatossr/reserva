@@ -12,6 +12,11 @@ Rails.application.routes.draw do
         resources :appointments
       end
       resources :appointments
+      resources :profiles
+      get 'logout', to: 'authentication#destroy', as: 'logout'
+      post 'login', to: 'authentication#authenticate', as: 'login'
+      post 'signup', to: 'users#new', as: 'signup'
+      get 'me', to: 'profiles#me', as: 'me'
     end
   end
 

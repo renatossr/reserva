@@ -16,6 +16,7 @@
 #  lat        :float
 #  long       :float
 #  review     :integer
+#  profile_id :integer
 #
 # Indexes
 #
@@ -27,6 +28,7 @@ class Establishment < ActiveRecord::Base
   
   validates :name, presence: true
 
+  belongs_to :profile
   has_many :positions
 
   # --------------------------- Scopes --------------------------------

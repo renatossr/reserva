@@ -8,5 +8,17 @@
       <li><a href="/">Home</a></li>
       <li><a href="/establishments">Establishments</a></li>
     </ul>
+    
+    <ul class="nav navbar-nav navbar-right">
+      <li ng-if="currentUser.role == userRoles.guest">
+        <a href="/login">Login</a>
+      </li>
+      <li ng-if="currentUser.role == userRoles.registered">
+        <a ng-href="/profile/{{currentUser.id}}">Profile</a>
+      </li>
+      <li ng-if="currentUser.role == userRoles.registered">
+        <a href="" ng-click="logout()" ng-controller="LoginController">Logout</a>
+      </li>
+    </ul>
   </div>
 </nav>
